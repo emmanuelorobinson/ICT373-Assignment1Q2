@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author DELL
  */
-public class Assignment1Q2 {
+public class Main {
 
     /**
      * @param args the command line arguments
