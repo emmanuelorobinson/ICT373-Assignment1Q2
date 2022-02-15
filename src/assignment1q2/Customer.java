@@ -5,26 +5,36 @@
  */
 package assignment1q2;
 
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  *
  * @author DELL
  */
 public class Customer {
 
+    private static AtomicInteger id = new AtomicInteger(0);
+    private int customerId;
     private String name;
     private String email;
-    //create arraylist of supplements
+    // create arraylist of supplements
     private ArrayList<Supplement> supplements = new ArrayList<Supplement>();
 
-    public Customer(){
+    public Customer() {
+        this.customerId = id.incrementAndGet();
         this.name = "";
         this.email = "";
     }
 
     public Customer(String name, String email) {
+        this.customerId = id.incrementAndGet();
         this.name = name;
         this.email = email;
+    }
+
+    public int getCustomerId() {
+        return customerId;
     }
 
     public String getName() {
@@ -39,7 +49,7 @@ public class Customer {
         return email;
     }
 
-    public void  setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -49,5 +59,36 @@ public class Customer {
 
     public void setSupplements(ArrayList<Supplement> supplements) {
         this.supplements = supplements;
+    }
+
+    public void addSupplement(Supplement supplement) {
+        supplements.add(supplement);
+    }
+
+    public boolean equals(Object otherCustomer) {
+        if (otherCustomer == null) {
+            return false;
+        }
+        if (this.getClass() != otherCustomer.getClass()) {
+            return false;
+        }
+        Customer other = (Customer) otherCustomer;
+        if (this.name.equals(other.name) && this.email.equals(other.email)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean equals(Customer otherCustomer) {
+        if (otherCustomer == null) {
+            return false;
+        }
+        if (this.getClass() != otherCustomer.getClass()) {
+            return false;
+        }
+        if (this.name.equals(otherCustomer.name) && this.email.equals(otherCustomer.email)) {
+            return true;
+        }
+        return false;
     }
 }

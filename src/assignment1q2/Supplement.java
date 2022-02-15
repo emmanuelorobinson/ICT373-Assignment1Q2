@@ -36,6 +36,11 @@ public class Supplement {
     }
 
     public void getSupplementsDetails() {
-        System.out.println("Name: " + name + " Cost: " + cost);
+        if (this.name.equals("")) {
+            System.out.println("No supplements added");
+        } else {
+            System.out.println("Name: " + name + " Cost: " + cost);
+        }
+        
     }
 }

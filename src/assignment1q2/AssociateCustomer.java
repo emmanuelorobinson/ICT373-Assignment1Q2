@@ -11,25 +11,26 @@ package assignment1q2;
  */
 public class AssociateCustomer extends Customer {
 
-    private int associateId;
+    private PayingCustomer payingCustomer;
 
     public AssociateCustomer() {
         super();
-        this.associateId = 0;
+        //System.out.println("Associate Customer ID: " + getCustomerId());
     }
 
-    public AssociateCustomer(String name, String email, int associateId) {
+    public AssociateCustomer(String name, String email) {
         super(name, email);
-        this.associateId = associateId;
+        //System.out.println("Associate Customer ID: " + getCustomerId());
     }
 
-    
-
-    public int getAssociateId() {
-        return associateId;
+    //set paying customer
+    public void setPayingCustomer(PayingCustomer payingCustomer) {
+        this.payingCustomer = payingCustomer;
+        payingCustomer.addAssociate(this);
     }
 
-    public void setAssociateId(int associateId) {
-        this.associateId = associateId;
+    //get paying customer for associate customer
+    public PayingCustomer getPayingCustomer() {
+        return payingCustomer;
     }
 }
