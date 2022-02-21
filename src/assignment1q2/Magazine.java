@@ -5,6 +5,8 @@
  */
 package assignment1q2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DELL
@@ -13,6 +15,8 @@ public class Magazine {
     private int month;
     private String title;
     private float weeklyCost;
+    private ArrayList <Supplement> supplementList = new ArrayList<Supplement>();
+    private ArrayList <Customer> customerList = new ArrayList<Customer>();
 
     public Magazine(int month, String title, float weeklyCost) {
         this.month = month;
@@ -42,5 +46,33 @@ public class Magazine {
 
     public void setWeeklyCost(float weeklyCost) {
         this.weeklyCost = weeklyCost;
+    }
+
+    public ArrayList<Supplement> getSupplements() {
+        return supplementList;
+    }
+
+    public void setSupplements(ArrayList<Supplement> supplements) {
+        this.supplementList = supplements;
+    }
+
+    public void addSupplement(Supplement supplement) {
+        supplementList.add(supplement);
+    }
+
+    public ArrayList<Customer> getCustomerList() {
+        return customerList;
+    }
+
+    public void setCustomerList(ArrayList<Customer> customerList) {
+        this.customerList = customerList;
+    }
+
+    public void addCustomer(Customer customer) {
+        customerList.add(customer);
+    }
+
+    public void removeCustomer(Customer customer) {
+        customerList.remove(customer);
     }
 }

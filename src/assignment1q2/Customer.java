@@ -5,7 +5,6 @@
  */
 package assignment1q2;
 
-import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -18,8 +17,6 @@ public class Customer {
     private int customerId;
     private String name;
     private String email;
-    // create arraylist of supplements
-    private ArrayList<Supplement> supplements = new ArrayList<Supplement>();
 
     public Customer() {
         this.customerId = id.incrementAndGet();
@@ -51,18 +48,6 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public ArrayList<Supplement> getSupplements() {
-        return supplements;
-    }
-
-    public void setSupplements(ArrayList<Supplement> supplements) {
-        this.supplements = supplements;
-    }
-
-    public void addSupplement(Supplement supplement) {
-        supplements.add(supplement);
     }
 
     public boolean equals(Object otherCustomer) {

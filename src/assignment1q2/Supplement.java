@@ -24,7 +24,7 @@ public class Supplement {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name.trim().toLowerCase();
     }
 
     public float getCost() {
