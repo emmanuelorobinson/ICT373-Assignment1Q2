@@ -12,25 +12,30 @@ import java.util.ArrayList;
  * @author DELL
  */
 public class Magazine {
-    private int month;
+    //private int month;
     private String title;
     private float weeklyCost;
     private ArrayList <Supplement> supplementList = new ArrayList<Supplement>();
     private ArrayList <Customer> customerList = new ArrayList<Customer>();
 
-    public Magazine(int month, String title, float weeklyCost) {
-        this.month = month;
+    public Magazine(String title, float weeklyCost) {
+        //this.month = month;
         this.title = title;
         this.weeklyCost = weeklyCost;
     }
 
-    public int getMonth() {
-        return month;
+    public Magazine() {
+        this.title = "";
+        this.weeklyCost = 0;
     }
 
-    public void setMonth(int month) {
-        this.month = month;
-    }
+    // public int getMonth() {
+    //     return month;
+    // }
+
+    // public void setMonth(int month) {
+    //     this.month = month;
+    // }
 
     public String getTitle() {
         return title;
@@ -60,6 +65,19 @@ public class Magazine {
         supplementList.add(supplement);
     }
 
+    public ArrayList<Supplement> getSuppList() {
+        return supplementList;
+    }
+
+    public Supplement getSupplementByName(String name) {
+        for (Supplement s : supplementList) {
+            if (s.getName().equals(name)) {
+                return s;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<Customer> getCustomerList() {
         return customerList;
     }
@@ -74,5 +92,14 @@ public class Magazine {
 
     public void removeCustomer(Customer customer) {
         customerList.remove(customer);
+    }
+
+    public PayingCustomer getCustomerById(int id) {
+        for (Customer customer : customerList) {
+            if (customer.getCustomerId() == id) {
+                return (PayingCustomer)customer;
+            }
+        }
+        return null;
     }
 }

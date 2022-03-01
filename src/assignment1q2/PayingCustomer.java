@@ -21,6 +21,11 @@ public class PayingCustomer extends Customer {
         this.paymentMethod = paymentMethod;
     }
 
+    public PayingCustomer(){
+        super();
+        this.paymentMethod = "";
+    }
+
     public String getPaymentMethod() {
         return paymentMethod;
     }

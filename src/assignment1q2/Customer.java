@@ -34,6 +34,8 @@ public class Customer {
         return customerId;
     }
 
+    //return customer by id
+
     public String getName() {
         return name;
     }

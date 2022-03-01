@@ -19,6 +19,11 @@ public class Supplement {
         this.cost = cost;
     }
 
+    public Supplement() {
+        this.name = "";
+        this.cost = 0;
+    }
+
     public String getName() {
         return name;
     }
