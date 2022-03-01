@@ -59,7 +59,6 @@ public class Main {
 
         Magazine mag = new Magazine();
         Subscription sub = new Subscription();
-        int choice;
 
         System.out.println("1. Add magazine");
         System.out.println("2. Add supplement");
@@ -102,6 +101,8 @@ public class Main {
             default:
                 break;
         }
+
+        sc.close();
     }
 
     public static void addMagazine(Magazine mag) {
@@ -112,6 +113,8 @@ public class Main {
 
         System.out.println("Enter Magazine Cost: ");
         mag.setWeeklyCost(sc.nextFloat());
+
+        sc.close();
     }
 
     public static void addSupplement(Magazine mag) {
@@ -134,6 +137,8 @@ public class Main {
                 break;
             }
         }
+
+        sc.close();
     }
 
     public static void addPayingCustomer(Magazine mag) {
@@ -160,6 +165,8 @@ public class Main {
                 break;
             }
         }
+
+        sc.close();
     }
 
     public static void addAssociateCustomer(Magazine mag) {
@@ -194,6 +201,8 @@ public class Main {
             }
         }
 
+        sc.close();
+
     }
 
     public static void addCustomerSupplement(Magazine mag, Subscription sub) {
@@ -218,6 +227,8 @@ public class Main {
                 break;
             }
         }
+
+        sc.close();
     }
 
     public static void removeCustomer(Magazine mag) {
@@ -230,6 +241,8 @@ public class Main {
 
         System.out.println("Please type in the ID of the customer to remove: ");
         mag.removeCustomer(mag.getCustomerById(sc.nextInt()));
+
+        sc.close();
     }
 
 }
