@@ -27,8 +27,8 @@ public class Menu {
             System.out.println("4. Add Associate Customer");
             System.out.println("5. Add Customer Supplement");
             System.out.println("6. Remove Customer from magazine");
-            System.out.println("7. Get Monthly Cost");
-            System.out.println("8. Get Weekly Supplement Cost");
+            System.out.println("7. Get 4 Weeks of email for each customer");
+            System.out.println("8. Get Monthly Cost");
             System.out.println("9. Exit");
 
             System.out.println("\nPlease go through 1-6 in order to add customers and supplements");
