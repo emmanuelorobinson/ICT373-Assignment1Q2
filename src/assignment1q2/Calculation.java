@@ -30,14 +30,12 @@ public class Calculation {
         // get supplements for customer
         ArrayList<Supplement> supplements;
 
-        supplements = sub.getSupplements(customer.getCustomerId());
-
-        // check if customer has any supplements
-
         // print out supplements details
         System.out.println("\nSupplement Details for : " + customer.getName());
 
-        if (supplements.size() > 0) {
+        if (sub.getSupplements(customer.getCustomerId()) != null) {
+            supplements = sub.getSupplements(customer.getCustomerId());
+
             for (Supplement supplement : supplements) {
                 System.out.println("Supplement: " + supplement.getName() + " Cost" + (supplement.getCost() * weeknum));
             }

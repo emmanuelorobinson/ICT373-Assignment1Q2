@@ -73,7 +73,13 @@ public class Main {
             System.out.println("8. Get Weekly Supplement Cost");
             System.out.println("9. Exit");
 
-            switch (sc.nextInt()) {
+            System.out.println("\n Please go through 1-6 in order to add customers and supplements");
+            System.out.println("Last choosen option: " + option);
+
+            System.out.println("Enter your option: ");
+            option = sc.nextInt();
+
+            switch (option) {
                 case 1:
                     addMagazine(mag);
                     break;
