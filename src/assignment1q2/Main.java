@@ -18,39 +18,39 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        Magazine mag = new Magazine("The Daily Express", 10.0f);
-        Subscription sub = new Subscription();
-        //menu();
+        // Magazine mag = new Magazine("The Daily Express", 10.0f);
+        // Subscription sub = new Subscription();
+        menu();
 
-        // create supplement to be added to magazine
-        Supplement supplement1 = new Supplement("Supplement 1", 10.0f);
-        Supplement supplement2 = new Supplement("Supplement 2", 20.0f);
-        Supplement supplement3 = new Supplement("Supplement 3", 30.0f);
-        Supplement supplement4 = new Supplement("Supplement 4", 40.0f);
+        // // create supplement to be added to magazine
+        // Supplement supplement1 = new Supplement("Supplement 1", 10.0f);
+        // Supplement supplement2 = new Supplement("Supplement 2", 20.0f);
+        // Supplement supplement3 = new Supplement("Supplement 3", 30.0f);
+        // Supplement supplement4 = new Supplement("Supplement 4", 40.0f);
 
-        // add supplements to magazine
-        mag.addSupplement(supplement1);
-        mag.addSupplement(supplement2);
-        mag.addSupplement(supplement3);
-        mag.addSupplement(supplement4);
+        // // add supplements to magazine
+        // mag.addSupplement(supplement1);
+        // mag.addSupplement(supplement2);
+        // mag.addSupplement(supplement3);
+        // mag.addSupplement(supplement4);
 
-        // create a paying customer and an associate customer
-        PayingCustomer customer1 = new PayingCustomer("Customer 1",
-        "customer1@gmail.com", "credit");
-        sub.addSupplement(customer1.getCustomerId(), supplement1, mag);
-        sub.addSupplement(customer1.getCustomerId(), supplement2, mag);
+        // // create a paying customer and an associate customer
+        // PayingCustomer customer1 = new PayingCustomer("Customer 1",
+        // "customer1@gmail.com", "credit");
+        // sub.addSupplement(customer1.getCustomerId(), supplement1, mag);
+        // sub.addSupplement(customer1.getCustomerId(), supplement2, mag);
 
-        AssociateCustomer customer3 = new AssociateCustomer("Customer 3",
-        "customer3@gmail.com");
-        sub.addSupplement(customer3.getCustomerId(), supplement3, mag);
-        sub.addSupplement(customer3.getCustomerId(), supplement4, mag);
-        customer3.setPayingCustomer(customer1);
+        // AssociateCustomer customer3 = new AssociateCustomer("Customer 3",
+        // "customer3@gmail.com");
+        // sub.addSupplement(customer3.getCustomerId(), supplement3, mag);
+        // sub.addSupplement(customer3.getCustomerId(), supplement4, mag);
+        // customer3.setPayingCustomer(customer1);
 
-        // add customer to magazine
-        mag.addCustomer(customer1);
-        mag.addCustomer(customer3);
+        // // add customer to magazine
+        // mag.addCustomer(customer1);
+        // mag.addCustomer(customer3);
 
-        Calculation.getMonthlyCost(customer1, sub);
+        // Calculation.getMonthlyCost(customer1, sub);
 
     }
 
@@ -59,50 +59,54 @@ public class Main {
 
         Magazine mag = new Magazine();
         Subscription sub = new Subscription();
+        int option = 0;
 
-        System.out.println("1. Add magazine");
-        System.out.println("2. Add supplement");
-        System.out.println("3. Add Paying Customer");
-        System.out.println("4. Add Associate Customer");
-        System.out.println("5. Add Customer Supplement");
-        System.out.println("6. Remove Customer from magazine");
-        System.out.println("7. Get Monthly Cost");
-        System.out.println("8. Get Weekly Supplement Cost");
-        System.out.println("9. Exit");
+        while (option != 9) {
 
-        switch (sc.nextInt()) {
-            case 1:
-                addMagazine(mag);
-                break;
+            System.out.println("1. Add magazine");
+            System.out.println("2. Add supplement to magazine1");
+            System.out.println("3. Add Paying Customer");
+            System.out.println("4. Add Associate Customer");
+            System.out.println("5. Add Customer Supplement");
+            System.out.println("6. Remove Customer from magazine");
+            System.out.println("7. Get Monthly Cost");
+            System.out.println("8. Get Weekly Supplement Cost");
+            System.out.println("9. Exit");
 
-            case 2:
-                addSupplement(mag);
-                break;
+            switch (sc.nextInt()) {
+                case 1:
+                    addMagazine(mag);
+                    break;
 
-            case 3:
-                addPayingCustomer(mag);
-                break;
+                case 2:
+                    addSupplement(mag);
+                    break;
 
-            case 4:
-                addAssociateCustomer(mag);
-                break;
+                case 3:
+                    addPayingCustomer(mag);
+                    break;
 
-            case 5:
-                addCustomerSupplement(mag, sub);
-                break;
+                case 4:
+                    addAssociateCustomer(mag);
+                    break;
 
-            case 6:
-                removeCustomer(mag);
-                break;
+                case 5:
+                    addCustomerSupplement(mag, sub);
+                    break;
 
-            case 7:
-                Calculation.getMonthlyCostEmail(mag, sub);
-                break;
-            default:
-                break;
+                case 6:
+                    removeCustomer(mag);
+                    break;
+
+                case 7:
+                    Calculation.getMonthlyCostEmail(mag, sub);
+                    break;
+                default:
+                    break;
+            }
         }
 
-        sc.close();
+        
     }
 
     public static void addMagazine(Magazine mag) {
@@ -114,7 +118,6 @@ public class Main {
         System.out.println("Enter Magazine Cost: ");
         mag.setWeeklyCost(sc.nextFloat());
 
-        sc.close();
     }
 
     public static void addSupplement(Magazine mag) {
@@ -129,7 +132,6 @@ public class Main {
             System.out.println("Enter Supplement Cost: ");
             supplement.setCost(sc.nextFloat());
 
-
             mag.addSupplement(supplement);
 
             System.out.println("Do you want to add another supplement? (y/n)");
@@ -138,7 +140,7 @@ public class Main {
             }
         }
 
-        sc.close();
+        //
     }
 
     public static void addPayingCustomer(Magazine mag) {
@@ -154,11 +156,10 @@ public class Main {
             System.out.println("Enter Customer Email: ");
             customer.setEmail(sc.next());
 
-            System.out.println("Enter Customer Payment Method: ");
+            System.out.println("Enter Customer Payment Method (c/d): ");
             customer.setPaymentMethod(sc.next());
-            
-            mag.addCustomer(customer);
 
+            mag.addCustomer(customer);
 
             System.out.println("Do you want to add another customer? (y/n)");
             if (sc.next().toLowerCase().equals("n")) {
@@ -166,19 +167,19 @@ public class Main {
             }
         }
 
-        sc.close();
+        
     }
 
     public static void addAssociateCustomer(Magazine mag) {
         Scanner sc = new Scanner(System.in);
 
-        //prinout all paying customer in magazine
+        // prinout all paying customer in magazine
         mag.getCustomerList().forEach((customer) -> {
-            if(customer instanceof PayingCustomer){
+            if (customer instanceof PayingCustomer) {
                 System.out.println("ID: " + customer.getCustomerId() + " Name: " + customer.getName());
             }
         });
-        
+
         while (true) {
             AssociateCustomer customer = new AssociateCustomer();
 
@@ -189,11 +190,10 @@ public class Main {
             customer.setEmail(sc.next());
 
             System.out.println("Please type in the ID of the paying customer: ");
-            PayingCustomer payingCustomer = mag.getCustomerById(sc.nextInt());
+            PayingCustomer payingCustomer = (PayingCustomer) mag.getCustomerById(sc.nextInt());
             customer.setPayingCustomer(payingCustomer);
 
             mag.addCustomer(customer);
-
 
             System.out.println("Do you want to add another customer? (y/n)");
             if (sc.next().equals("n")) {
@@ -201,20 +201,24 @@ public class Main {
             }
         }
 
-        sc.close();
+        
 
     }
 
     public static void addCustomerSupplement(Magazine mag, Subscription sub) {
         Scanner sc = new Scanner(System.in);
 
-        //prinout all supplement in magazine
+        mag.getCustomerList().forEach((customer) -> {
+                System.out.println("ID: " + customer.getCustomerId() + " Name: " + customer.getName());
+        });
+
+        // prinout all supplement in magazine
         mag.getSuppList().forEach((supplement) -> {
             System.out.println(" Name: " + supplement.getName().toLowerCase());
         });
 
         while (true) {
-            
+
             System.out.println("Please type in the ID of the customer to add supplement for: ");
             Customer customer = mag.getCustomerById(sc.nextInt());
 
@@ -223,18 +227,19 @@ public class Main {
 
             sub.addSupplement(customer.getCustomerId(), supplement, mag);
 
+            System.out.println("Do you want to add another customer? (y/n)");
             if (sc.next().equals("n")) {
                 break;
             }
         }
 
-        sc.close();
+        
     }
 
     public static void removeCustomer(Magazine mag) {
         Scanner sc = new Scanner(System.in);
 
-        //prinout all supplement in magazine
+        // prinout all supplement in magazine
         mag.getCustomerList().forEach((customer) -> {
             System.out.println("ID: " + customer.getCustomerId() + " Name: " + customer.getName());
         });
@@ -242,7 +247,7 @@ public class Main {
         System.out.println("Please type in the ID of the customer to remove: ");
         mag.removeCustomer(mag.getCustomerById(sc.nextInt()));
 
-        sc.close();
+        
     }
 
 }

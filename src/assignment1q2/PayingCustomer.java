@@ -33,7 +33,7 @@ public class PayingCustomer extends Customer {
     public void setPaymentMethod(String paymentMethod) {
         //check if payment method is credit or debit
 
-        if(paymentMethod.equals("credit".toLowerCase().trim()) || paymentMethod.equals("debit".toLowerCase().trim())){
+        if(paymentMethod.equals("c".toLowerCase().trim()) || paymentMethod.equals("d".toLowerCase().trim())){
             this.paymentMethod = paymentMethod;
         }
         else{

@@ -94,7 +94,7 @@ public class Magazine {
         customerList.remove(customer);
     }
 
-    public PayingCustomer getCustomerById(int id) {
+    public Customer getCustomerById(int id) {
         for (Customer customer : customerList) {
             if (customer.getCustomerId() == id) {
                 return (PayingCustomer)customer;
