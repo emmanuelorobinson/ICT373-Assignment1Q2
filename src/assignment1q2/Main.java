@@ -207,8 +207,6 @@ public class Main {
             }
         }
 
-        
-
     }
 
     public static void addCustomerSupplement(Magazine mag, Subscription sub) {
