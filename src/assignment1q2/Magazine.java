@@ -97,7 +97,7 @@ public class Magazine {
     public Customer getCustomerById(int id) {
         for (Customer customer : customerList) {
             if (customer.getCustomerId() == id) {
-                return (PayingCustomer)customer;
+                return (Customer)customer;
             }
         }
         return null;
