@@ -12,14 +12,12 @@ import java.util.ArrayList;
  * @author DELL
  */
 public class Magazine {
-    //private int month;
     private String title;
     private float weeklyCost;
-    private ArrayList <Supplement> supplementList = new ArrayList<Supplement>();
-    private ArrayList <Customer> customerList = new ArrayList<Customer>();
+    private ArrayList<Supplement> supplementList = new ArrayList<Supplement>();
+    private ArrayList<Customer> customerList = new ArrayList<Customer>();
 
     public Magazine(String title, float weeklyCost) {
-        //this.month = month;
         this.title = title;
         this.weeklyCost = weeklyCost;
     }
@@ -28,14 +26,6 @@ public class Magazine {
         this.title = "";
         this.weeklyCost = 0;
     }
-
-    // public int getMonth() {
-    //     return month;
-    // }
-
-    // public void setMonth(int month) {
-    //     this.month = month;
-    // }
 
     public String getTitle() {
         return title;
@@ -57,10 +47,6 @@ public class Magazine {
         return supplementList;
     }
 
-    public void setSupplements(ArrayList<Supplement> supplements) {
-        this.supplementList = supplements;
-    }
-
     public void addSupplement(Supplement supplement) {
         supplementList.add(supplement);
     }
@@ -69,6 +55,7 @@ public class Magazine {
         return supplementList;
     }
 
+    // method allows the retrieval of a supplement by its name
     public Supplement getSupplementByName(String name) {
         for (Supplement s : supplementList) {
             if (s.getName().equals(name)) {
@@ -82,10 +69,6 @@ public class Magazine {
         return customerList;
     }
 
-    public void setCustomerList(ArrayList<Customer> customerList) {
-        this.customerList = customerList;
-    }
-
     public void addCustomer(Customer customer) {
         customerList.add(customer);
     }
@@ -94,10 +77,11 @@ public class Magazine {
         customerList.remove(customer);
     }
 
+    // method allows the retrieval of a customer by its ID
     public Customer getCustomerById(int id) {
         for (Customer customer : customerList) {
             if (customer.getCustomerId() == id) {
-                return (Customer)customer;
+                return (Customer) customer;
             }
         }
         return null;

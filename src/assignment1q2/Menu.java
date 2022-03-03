@@ -22,7 +22,7 @@ public class Menu {
         while (option != 9) {
 
             System.out.println("1. Add magazine");
-            System.out.println("2. Add supplement to magazine1");
+            System.out.println("2. Add supplement to magazine");
             System.out.println("3. Add Paying Customer");
             System.out.println("4. Add Associate Customer");
             System.out.println("5. Add Customer Supplement");
@@ -64,7 +64,7 @@ public class Menu {
 
                 case 7:
                     Calculation.getMonthlyCostEmail(mag, sub);
-                    //press any key to continue
+                    // press any key to continue
                     System.out.println("Press any key to continue");
                     sc.nextLine();
 
@@ -74,7 +74,6 @@ public class Menu {
             }
         }
 
-        
     }
 
     public static void addMagazine(Magazine mag) {
@@ -134,7 +133,6 @@ public class Menu {
             }
         }
 
-        
     }
 
     public static void addAssociateCustomer(Magazine mag) {
@@ -174,7 +172,7 @@ public class Menu {
         Scanner sc = new Scanner(System.in);
 
         mag.getCustomerList().forEach((customer) -> {
-                System.out.println("ID: " + customer.getCustomerId() + " Name: " + customer.getName());
+            System.out.println("ID: " + customer.getCustomerId() + " Name: " + customer.getName());
         });
 
         // prinout all supplement in magazine
@@ -198,7 +196,6 @@ public class Menu {
             }
         }
 
-        
     }
 
     public static void removeCustomer(Magazine mag) {
@@ -212,6 +209,5 @@ public class Menu {
         System.out.println("Please type in the ID of the customer to remove: ");
         mag.removeCustomer(mag.getCustomerById(sc.nextInt()));
 
-        
     }
 }

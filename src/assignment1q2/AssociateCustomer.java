@@ -15,21 +15,21 @@ public class AssociateCustomer extends Customer {
 
     public AssociateCustomer() {
         super();
-        //System.out.println("Associate Customer ID: " + getCustomerId());
     }
 
     public AssociateCustomer(String name, String email) {
         super(name, email);
-        //System.out.println("Associate Customer ID: " + getCustomerId());
     }
 
-    //set paying customer
+    // sets paying customer
     public void setPayingCustomer(PayingCustomer payingCustomer) {
         this.payingCustomer = payingCustomer;
+
+        // adds associate customer to associate list of paying customer
         payingCustomer.addAssociate(this);
     }
 
-    //get paying customer for associate customer
+    // get paying customer for associate customer
     public PayingCustomer getPayingCustomer() {
         return payingCustomer;
     }

@@ -29,34 +29,34 @@ public class Calculation {
         ArrayList<Customer> customers = mag.getCustomerList();
 
         for (Customer customer : customers) {
-            getMonthlyCost((PayingCustomer) customer, sub, mag);
+            getWeeklySuppList(customer, sub, mag);
         }
     }
 
     public static void getMonthlyCost(PayingCustomer customer, Subscription sub, Magazine mag) {
-        int weeknum = 4;
+        int numOfWeek = 4;
         float total = 0;
 
         // get supplements for customer
         ArrayList<Supplement> supplements;
 
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("END OF THE MONTH ACCOUNT STATEMENT");
 
         // print out supplements details
         System.out.println("\nPAYING CUSTOMER: " + customer.getName());
         System.out.println("EMAIL: " + customer.getEmail());
-        System.out.println("Subscibed to: " + mag.getTitle() + " Monthly Cost: $" + (mag.getWeeklyCost() * weeknum));
-        total = mag.getWeeklyCost() * weeknum;
+        System.out.println("Subscibed to: " + mag.getTitle() + " :: Monthly Cost: $" + (mag.getWeeklyCost() * numOfWeek));
+        total = mag.getWeeklyCost() * numOfWeek;
         System.out.println(
-                "---------------------------------------------------------------------------------------------------------------");
+                "------------------------------------------------------------------------------------");
 
         if (sub.getSupplements(customer.getCustomerId()) != null) {
             supplements = sub.getSupplements(customer.getCustomerId());
 
             for (Supplement supplement : supplements) {
-                System.out.println(
-                        "-->" + supplement.getName() + " Month Sum: $" + (supplement.getCost() * weeknum));
-                total += supplement.getCost() * weeknum;
+                supplement.getCostDetails(numOfWeek);
+                total += supplement.getCost() * numOfWeek;
             }
         } else {
             System.out.println("No supplements for this customer");
@@ -67,8 +67,13 @@ public class Calculation {
         // for each associated customer get supplements
         System.out.println("PAYING FOR: ");
         System.out.println(
-                "###########################################################################################################");
+                "##################################################################################");
         for (AssociateCustomer associatedCustomer : customer.getAssociateList()) {
+
+            //check if associate customer is part of the magazine
+            if (!mag.getCustomerList().contains(associatedCustomer)){
+                return;
+            }
 
             ArrayList<Supplement> associatedSupplements;
 
@@ -79,9 +84,8 @@ public class Calculation {
                 associatedSupplements = sub.getSupplements(associatedCustomer.getCustomerId());
 
                 for (Supplement supplement : associatedSupplements) {
-                    System.out.println(
-                            "--->" + supplement.getName() + " Month Sum: $" + (supplement.getCost() * weeknum));
-                    total += supplement.getCost() * weeknum;
+                    supplement.getCostDetails(numOfWeek);
+                    total += supplement.getCost() * numOfWeek;
                 }
 
                 System.out.println("");
@@ -94,13 +98,16 @@ public class Calculation {
         }
 
         System.out.println("Month Total: $" + total);
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("");
 
     }
 
-    public void getWeeklySuppList(Customer customer, Subscription sub, Magazine mag) {
+    public static void getWeeklySuppList(Customer customer, Subscription sub, Magazine mag) {
 
         // get supplements for customer
         ArrayList<Supplement> supplements;
+        int numOfWeek = 1;
 
         System.out.println("WEEKLY MAGAZINE FOR " + mag.getTitle().toUpperCase() + " OUT NOW!");
 
@@ -108,21 +115,22 @@ public class Calculation {
         System.out.println("\nNAME: " + customer.getName());
         System.out.println("EMAIL: " + customer.getEmail());
         System.out.println(
-                "---------------------------------------------------------------------------------------------------------------");
+                "---------------------------------------------------------------------------------");
 
         if (sub.getSupplements(customer.getCustomerId()) != null) {
             supplements = sub.getSupplements(customer.getCustomerId());
 
             for (Supplement supplement : supplements) {
-                System.out.println(
-                        "-->" + supplement.getName() + " Weekly Cost: $" + supplement.getCost());
+                supplement.getCostDetails(numOfWeek);
             }
         } else {
             System.out.println("No supplements for this customer");
         }
 
+        System.out.println("");
         System.out.println(
                 "##############################################################################################");
+        System.out.println("");
 
     }
 }

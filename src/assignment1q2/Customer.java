@@ -26,22 +26,22 @@ public class Customer {
 
     public Customer(String name, String email) {
         this.customerId = id.incrementAndGet();
-        this.name = name;
-        this.email = email;
+        this.name = name.toLowerCase();
+        this.email = email.toLowerCase();
     }
 
     public int getCustomerId() {
         return customerId;
     }
 
-    //return customer by id
+    // return customer by id
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name.toLowerCase();
     }
 
     public String getEmail() {
@@ -49,7 +49,7 @@ public class Customer {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = email.toLowerCase();
     }
 
     public boolean equals(Object otherCustomer) {

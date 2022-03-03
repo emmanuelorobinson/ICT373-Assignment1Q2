@@ -10,7 +10,7 @@ package assignment1q2;
  * @author DELL
  */
 public class Supplement {
-    
+
     private String name;
     private float cost;
 
@@ -40,12 +40,21 @@ public class Supplement {
         this.cost = cost;
     }
 
-    public void getSupplementsDetails() {
+    // gets supplement name and cost multiplied by numOfWeek
+    public void getCostDetails(int numOfWeek) {
+        String str = "";
+
+        if (numOfWeek == 1) {
+            str = " :: ";
+        } else if (numOfWeek == 4) {
+            str = " :: Month-";
+        }
+
         if (this.name.equals("")) {
             System.out.println("No supplements added");
         } else {
-            System.out.println("Name: " + name + " Cost: " + cost);
+            System.out.println("--->" + this.name + str + "Sum: $" + (this.cost * numOfWeek));
         }
-        
+
     }
 }

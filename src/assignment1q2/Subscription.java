@@ -13,35 +13,41 @@ import java.util.HashMap;
  * @author DELL
  */
 public class Subscription {
-    private HashMap<Integer, ArrayList<Supplement>> Subscription = new HashMap<Integer, ArrayList<Supplement>>();
+    // links a customer to its supplements of choice
+    private HashMap<Integer, ArrayList<Supplement>> subscription = new HashMap<Integer, ArrayList<Supplement>>();
 
     public Subscription() {
-        this.Subscription = new HashMap<Integer, ArrayList<Supplement>>();
+        this.subscription = new HashMap<Integer, ArrayList<Supplement>>();
     }
 
-    // create method to add supplement to hashmap
+    // method adds supplement to hashmap
     public void addSupplement(int customerId, Supplement supplement, Magazine magazine) {
-        if (Subscription.containsKey(customerId)) {
+        if (subscription.containsKey(customerId)) {
 
-            // check if magazine contains supplement
+            // checks if magazine contains supplement trying to be added
             if (magazine.getSupplements().contains(supplement)) {
+
                 // check if customer already has this supplement
-                if (!Subscription.get(customerId).contains(supplement)) {
-                    Subscription.get(customerId).add(supplement);
+                if (!subscription.get(customerId).contains(supplement)) {
+                    subscription.get(customerId).add(supplement);
                 } else {
                     System.out.println("Customer already has this supplement");
                 }
+
             } else {
                 System.out.println("Magazine does not contain this supplement");
             }
         } else {
 
             ArrayList<Supplement> supplements = new ArrayList<Supplement>();
-            // check if magazine contains supplement
+
+            // checks if magazine contains supplement
             if (magazine.getSupplements().contains(supplement)) {
+
                 // check if customer already has this supplement
                 supplements.add(supplement);
-                Subscription.put(customerId, supplements);
+                subscription.put(customerId, supplements);
+
             } else {
                 System.out.println("Magazine does not contain this supplement");
             }
@@ -49,8 +55,8 @@ public class Subscription {
         }
     }
 
-    // create method to get supplements for customer
+    // method gest supplements for customer by ID
     public ArrayList<Supplement> getSupplements(int customerId) {
-        return Subscription.get(customerId);
+        return subscription.get(customerId);
     }
 }

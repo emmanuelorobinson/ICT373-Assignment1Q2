@@ -14,14 +14,14 @@ import java.util.ArrayList;
 public class PayingCustomer extends Customer {
 
     private String paymentMethod;
-    private ArrayList <AssociateCustomer> associateList = new ArrayList<AssociateCustomer>();
+    private ArrayList<AssociateCustomer> associateList = new ArrayList<AssociateCustomer>();
 
     public PayingCustomer(String name, String email, String paymentMethod) {
         super(name, email);
         this.paymentMethod = paymentMethod;
     }
 
-    public PayingCustomer(){
+    public PayingCustomer() {
         super();
         this.paymentMethod = "";
     }
@@ -30,25 +30,23 @@ public class PayingCustomer extends Customer {
         return paymentMethod;
     }
 
+    // Checks if the payment method is valid c = credit, d = debit
     public void setPaymentMethod(String paymentMethod) {
-        //check if payment method is credit or debit
 
-        if(paymentMethod.equals("c".toLowerCase().trim()) || paymentMethod.equals("d".toLowerCase().trim())){
+        // check if payment method is credit or debit
+        if (paymentMethod.equals("c".toLowerCase().trim()) || paymentMethod.equals("d".toLowerCase().trim())) {
             this.paymentMethod = paymentMethod;
-        }
-        else{
+        } else {
             System.out.println("Invalid payment method");
         }
     }
 
+    // retrns list of associate customers for paying customer
     public ArrayList<AssociateCustomer> getAssociateList() {
         return associateList;
     }
 
-    public void setAssociateList(ArrayList<AssociateCustomer> associateList) {
-        this.associateList = associateList;
-    }
-
+    // adds associate customer to associate list
     public void addAssociate(AssociateCustomer associate) {
         associateList.add(associate);
     }
