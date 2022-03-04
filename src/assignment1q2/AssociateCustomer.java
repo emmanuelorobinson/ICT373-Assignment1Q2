@@ -6,22 +6,41 @@
 package assignment1q2;
 
 /**
- *
- * @author DELL
+ * @title AssociateCustomer
+ * @description This class is used to create an associate customer
+ * @filename AssociateCustomer.java
+ * @version 1.0
+ * @date 04/03/2020
+ * @author Emmanuel Ejakpomewhe
  */
+
 public class AssociateCustomer extends Customer {
 
     private PayingCustomer payingCustomer;
 
+    /**
+     * Defualt constructor for AssociateCustomer
+     */
     public AssociateCustomer() {
         super();
     }
 
+    /**
+     * Non-default constructor for AssociateCustomer
+     * 
+     * @param name
+     * @param email
+     */
     public AssociateCustomer(String name, String email) {
         super(name, email);
     }
 
-    // sets paying customer
+    /**
+     * Setter for associate customer. Allows the paying customer to be set for an
+     * associate customer
+     * 
+     * @param payingCustomer
+     */
     public void setPayingCustomer(PayingCustomer payingCustomer) {
         this.payingCustomer = payingCustomer;
 
@@ -29,7 +48,12 @@ public class AssociateCustomer extends Customer {
         payingCustomer.addAssociate(this);
     }
 
-    // get paying customer for associate customer
+    /**
+     *
+     * Gets the associate customer's paying customer
+     * 
+     * @return the paying customer
+     */
     public PayingCustomer getPayingCustomer() {
         return payingCustomer;
     }

@@ -8,10 +8,18 @@ package assignment1q2;
 import java.util.Scanner;
 
 /**
- *
- * @author DELL
+ * @title Menu
+ * @description This class is used to display the menu and call the appropriate
+ * @filename Menu.java
+ * @version 1.0
+ * @date 04/03/2020
+ * @author Emmanuel Ejakpomewhe
  */
 public class Menu {
+
+    /**
+     *
+     */
     public static void menu() {
         Scanner sc = new Scanner(System.in);
 
@@ -81,6 +89,11 @@ public class Menu {
 
     }
 
+    /**
+     * Creates a magazine
+     * 
+     * @param mag
+     */
     public static void addMagazine(Magazine mag) {
 
         Scanner sc = new Scanner(System.in);
@@ -93,6 +106,11 @@ public class Menu {
 
     }
 
+    /**
+     * Creates a supplement and adds it to the magazine
+     * 
+     * @param mag
+     */
     public static void addSupplement(Magazine mag) {
         Scanner sc = new Scanner(System.in);
 
@@ -116,6 +134,11 @@ public class Menu {
         //
     }
 
+    /**
+     * Creates a paying customer and adds it to the magazine
+     * 
+     * @param mag
+     */
     public static void addPayingCustomer(Magazine mag) {
         Scanner sc = new Scanner(System.in);
 
@@ -142,6 +165,11 @@ public class Menu {
 
     }
 
+    /**
+     * Creates an associate customer and adds it to the magazine
+     * 
+     * @param mag
+     */
     public static void addAssociateCustomer(Magazine mag) {
         Scanner sc = new Scanner(System.in);
 
@@ -179,6 +207,12 @@ public class Menu {
 
     }
 
+    /**
+     * Adds a supplement to a customer
+     * 
+     * @param mag
+     * @param sub
+     */
     public static void addCustomerSupplement(Magazine mag, Subscription sub) {
         Scanner sc = new Scanner(System.in);
 
@@ -211,6 +245,11 @@ public class Menu {
 
     }
 
+    /**
+     * Removes a customer from the magazine
+     * 
+     * @param mag
+     */
     public static void removeCustomer(Magazine mag) {
         Scanner sc = new Scanner(System.in);
 

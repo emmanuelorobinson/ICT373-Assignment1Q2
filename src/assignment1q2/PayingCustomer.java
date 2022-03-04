@@ -8,29 +8,54 @@ package assignment1q2;
 import java.util.ArrayList;
 
 /**
- *
- * @author DELL
+ * @title PayingCustomer
+ * @description This class is used to create a paying customer
+ * @filename PayingCustomer.java
+ * @version 1.0
+ * @date 04/03/2020
+ * @author Emmanuel Ejakpomewhe
  */
 public class PayingCustomer extends Customer {
 
     private String paymentMethod;
     private ArrayList<AssociateCustomer> associateList = new ArrayList<AssociateCustomer>();
 
-    public PayingCustomer(String name, String email, String paymentMethod) {
-        super(name, email);
-        this.paymentMethod = paymentMethod;
-    }
-
+    /**
+     * Default constructor for PayingCustomer
+     */
     public PayingCustomer() {
         super();
         this.paymentMethod = "";
     }
 
+    /**
+     * Non-Default constructor for PayingCustomer
+     * 
+     * @param name
+     * @param email
+     * @param paymentMethod
+     */
+    public PayingCustomer(String name, String email, String paymentMethod) {
+        super(name, email);
+        this.paymentMethod = paymentMethod;
+    }
+
+    /**
+     * Getter for payment method
+     * 
+     * @return paymentMethod
+     */
     public String getPaymentMethod() {
         return paymentMethod;
     }
 
     // Checks if the payment method is valid c = credit, d = debit
+
+    /**
+     * Setter for payment method
+     * 
+     * @param paymentMethod
+     */
     public void setPaymentMethod(String paymentMethod) {
 
         // check if payment method is credit or debit
@@ -42,11 +67,24 @@ public class PayingCustomer extends Customer {
     }
 
     // retrns list of associate customers for paying customer
+
+    /**
+     * Getter for associate list
+     * 
+     * @return associateList
+     */
     public ArrayList<AssociateCustomer> getAssociateList() {
         return associateList;
     }
 
     // adds associate customer to associate list
+
+    /**
+     * Adds associate customer to associate list
+     * 
+     * @param associate
+     * @return true if associate is valid
+     */
     public boolean addAssociate(AssociateCustomer associate) {
 
         // check if associate customer is already in list

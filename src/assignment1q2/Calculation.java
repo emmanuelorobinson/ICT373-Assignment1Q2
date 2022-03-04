@@ -8,11 +8,23 @@ package assignment1q2;
 import java.util.ArrayList;
 
 /**
- *
- * @author DELL
+ * @title Calulation
+ * @description This perform calculations need to get weekly and monthly emails
+ *              for the customers.
+ * @filename Calulation.java
+ * @version 1.0
+ * @date 04/03/2020
+ * @author Emmanuel Ejakpomewhe
  */
+
 public class Calculation {
 
+    /**
+     * Generates monthly email for all paying customers
+     * 
+     * @param mag
+     * @param sub
+     */
     public static void getMonthlyCostEmail(Magazine mag, Subscription sub) {
         // for each customer in magazine call getMonthlyCost
         ArrayList<Customer> customers = mag.getCustomerList();
@@ -28,6 +40,12 @@ public class Calculation {
         }
     }
 
+    /**
+     * Generates weekly email for all customers
+     * 
+     * @param mag
+     * @param sub
+     */
     public static void getWeeklyEmail(Magazine mag, Subscription sub) {
         // for each customer in magazine call getMonthlyCost
         ArrayList<Customer> customers = mag.getCustomerList();
@@ -45,6 +63,13 @@ public class Calculation {
         }
     }
 
+    /**
+     * Perfoms the calculation needed for the end of the month email.
+     * 
+     * @param pCustomer
+     * @param sub
+     * @param mag
+     */
     public static void getMonthlyCost(PayingCustomer pCustomer, Subscription sub, Magazine mag) {
         int numOfWeek = 4;
         float total = 0;
@@ -125,6 +150,14 @@ public class Calculation {
 
     }
 
+    /**
+     *
+     * Performs the calculation needed for the weekly email.
+     * 
+     * @param customer
+     * @param sub
+     * @param mag
+     */
     public static void getWeeklySuppList(Customer customer, Subscription sub, Magazine mag) {
 
         // get supplements for customer

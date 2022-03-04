@@ -9,18 +9,33 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
- * @author DELL
+ * @title Subscription
+ * @description This class allows for the connection of a customer and list of
+ *              supplements
+ * @filename Subscription.java
+ * @version 1.0
+ * @date 04/03/2020
+ * @author Emmanuel Ejakpomewhe
  */
 public class Subscription {
     // links a customer to its supplements of choice
     private HashMap<Integer, ArrayList<Supplement>> subscription = new HashMap<Integer, ArrayList<Supplement>>();
 
+    /**
+     * Default constructor for Subscription
+     */
     public Subscription() {
         this.subscription = new HashMap<Integer, ArrayList<Supplement>>();
     }
 
-    // method adds supplement to hashmap
+    /**
+     * Adds supplement to hashmap
+     * 
+     * @param customerId
+     * @param supplement
+     * @param magazine
+     * @return true if customer is valid
+     */
     public boolean addSupplement(int customerId, Supplement supplement, Magazine magazine) {
         // checks if magazine contains supplement trying to be added
         if (magazine.getSupplements().contains(supplement)) {
@@ -51,7 +66,12 @@ public class Subscription {
         }
     }
 
-    // method gest supplements for customer by ID
+    /**
+     * Gets supplements for customer by ID
+     * 
+     * @param customerId
+     * @return supplements
+     */
     public ArrayList<Supplement> getSupplements(int customerId) {
         return subscription.get(customerId);
     }
