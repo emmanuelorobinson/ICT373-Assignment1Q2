@@ -20,7 +20,7 @@ public class Supplement {
     }
 
     public Supplement() {
-        this.name = "";
+        this.name = "invlaid";
         this.cost = 0;
     }
 
@@ -28,20 +28,32 @@ public class Supplement {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name.trim().toLowerCase();
+    public boolean setName(String name) {
+
+        if (name.length() > 0) {
+            this.name = name.toLowerCase();
+            return true;
+        }
+        return false;
+
+        
     }
 
     public float getCost() {
         return cost;
     }
 
-    public void setCost(float cost) {
-        this.cost = cost;
+    public boolean setCost(float cost) {
+        
+        if (cost >= 0) {
+            this.cost = cost;
+            return true;
+        }
+        return false;
     }
 
     // gets supplement name and cost multiplied by numOfWeek
-    public void getCostDetails(int numOfWeek) {
+    public String getCostDetails(int numOfWeek) {
         String str = "";
 
         if (numOfWeek == 1) {
@@ -51,9 +63,9 @@ public class Supplement {
         }
 
         if (this.name.equals("")) {
-            System.out.println("No supplements added");
+            return ("No supplements added");
         } else {
-            System.out.println("--->" + this.name + str + "Sum: $" + (this.cost * numOfWeek));
+            return ("--->" + this.name + str + "Sum: $" + (this.cost * numOfWeek));
         }
 
     }

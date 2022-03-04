@@ -74,8 +74,8 @@ public class Test {
         mag.addCustomer(ac3);
         mag.addCustomer(ac4);
 
-        Calculation.getMonthlyCostEmail(mag, sub);
-        // Calculation.getWeeklyEmail(mag, sub);
+        //Calculation.getMonthlyCostEmail(mag, sub);
+        Calculation.getWeeklyEmail(mag, sub);
     }
 
 }

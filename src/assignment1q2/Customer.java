@@ -20,8 +20,8 @@ public class Customer {
 
     public Customer() {
         this.customerId = id.incrementAndGet();
-        this.name = "";
-        this.email = "";
+        this.name = "invalid name";
+        this.email = "invalidEmail@exmple.com";
     }
 
     public Customer(String name, String email) {
@@ -40,40 +40,30 @@ public class Customer {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name.toLowerCase();
+    public boolean setName(String name) {
+
+        if (name.length() > 0) {
+            this.name = name.toLowerCase();
+            return true;
+        }
+        return false;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email.toLowerCase();
-    }
+    public boolean setEmail(String email) {
 
-    public boolean equals(Object otherCustomer) {
-        if (otherCustomer == null) {
-            return false;
-        }
-        if (this.getClass() != otherCustomer.getClass()) {
-            return false;
-        }
-        Customer other = (Customer) otherCustomer;
-        if (this.name.equals(other.name) && this.email.equals(other.email)) {
+        if (email.length() > 0) {
+            this.email = email.toLowerCase();
             return true;
         }
         return false;
     }
 
-    public boolean equals(Customer otherCustomer) {
-        if (otherCustomer == null) {
-            return false;
-        }
-        if (this.getClass() != otherCustomer.getClass()) {
-            return false;
-        }
-        if (this.name.equals(otherCustomer.name) && this.email.equals(otherCustomer.email)) {
+    public boolean equals(Customer customer) {
+        if (this.name == customer.getName() && this.email == customer.getEmail()) {
             return true;
         }
         return false;

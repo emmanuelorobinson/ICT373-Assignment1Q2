@@ -47,7 +47,14 @@ public class PayingCustomer extends Customer {
     }
 
     // adds associate customer to associate list
-    public void addAssociate(AssociateCustomer associate) {
-        associateList.add(associate);
+    public boolean addAssociate(AssociateCustomer associate) {
+
+        // check if associate customer is already in list
+        if (!associateList.contains(associate)) {
+            associateList.add(associate);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

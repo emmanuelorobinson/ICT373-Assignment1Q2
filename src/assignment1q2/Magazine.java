@@ -31,24 +31,44 @@ public class Magazine {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public boolean setTitle(String title) {
+
+        if (title.length() > 0) {
+            this.title = title.toLowerCase();
+            return true;
+        }
+        return false;
     }
 
     public float getWeeklyCost() {
         return weeklyCost;
     }
 
-    public void setWeeklyCost(float weeklyCost) {
-        this.weeklyCost = weeklyCost;
+    public boolean setWeeklyCost(float weeklyCost) {
+
+        if (weeklyCost >= 0) {
+            this.weeklyCost = weeklyCost;
+            return true;
+        }
+        return false;
+
     }
 
     public ArrayList<Supplement> getSupplements() {
         return supplementList;
     }
 
-    public void addSupplement(Supplement supplement) {
-        supplementList.add(supplement);
+    public boolean addSupplement(Supplement supplement) {
+
+        if (supplement != null) {
+            if(!supplementList.contains(supplement)) {
+                supplementList.add(supplement);
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 
     public ArrayList<Supplement> getSuppList() {
@@ -69,8 +89,14 @@ public class Magazine {
         return customerList;
     }
 
-    public void addCustomer(Customer customer) {
-        customerList.add(customer);
+    public boolean addCustomer(Customer customer) {
+
+        if (customerList.contains(customer)) {
+            return false;
+        } else {
+            customerList.add(customer);
+            return true;
+        }
     }
 
     public void removeCustomer(Customer customer) {

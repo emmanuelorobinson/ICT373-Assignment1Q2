@@ -21,37 +21,33 @@ public class Subscription {
     }
 
     // method adds supplement to hashmap
-    public void addSupplement(int customerId, Supplement supplement, Magazine magazine) {
-        if (subscription.containsKey(customerId)) {
+    public boolean addSupplement(int customerId, Supplement supplement, Magazine magazine) {
+        // checks if magazine contains supplement trying to be added
+        if (magazine.getSupplements().contains(supplement)) {
 
-            // checks if magazine contains supplement trying to be added
-            if (magazine.getSupplements().contains(supplement)) {
+            if (subscription.containsKey(customerId)) {
 
                 // check if customer already has this supplement
                 if (!subscription.get(customerId).contains(supplement)) {
                     subscription.get(customerId).add(supplement);
+                    return true;
                 } else {
                     System.out.println("Customer already has this supplement");
+                    return false;
                 }
 
             } else {
-                System.out.println("Magazine does not contain this supplement");
-            }
-        } else {
-
-            ArrayList<Supplement> supplements = new ArrayList<Supplement>();
-
-            // checks if magazine contains supplement
-            if (magazine.getSupplements().contains(supplement)) {
+                ArrayList<Supplement> supplements = new ArrayList<Supplement>();
 
                 // check if customer already has this supplement
                 supplements.add(supplement);
                 subscription.put(customerId, supplements);
+                return true;
 
-            } else {
-                System.out.println("Magazine does not contain this supplement");
             }
-
+        } else {
+            System.out.println("Magazine does not contain this supplement");
+            return false;
         }
     }
 
